@@ -1,3 +1,6 @@
+import 'package:belajar_flutter/calculator_page.dart';
+import 'package:belajar_flutter/components/custom_button.dart';
+import 'package:belajar_flutter/components/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -8,11 +11,16 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  TextEditingController txtUsername = TextEditingController();
+  TextEditingController txtPassword = TextEditingController();
+  String statusLogin = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login Page"),
+        title: Text("Welcome to Login Page"),
       ),
       body: Padding(
         padding: EdgeInsetsGeometry.symmetric(
@@ -20,42 +28,60 @@ class _LoginPageState extends State<LoginPage> {
         ),
       child: Column(
       children: [
-        Text(
-          "welcome to sakura school simulator",
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.blue,
-            fontWeight: FontWeight.w900
-          ),
-        ),
-        TextField(
-          decoration: InputDecoration(
-            hintText: "cooluser43",
-            labelText: 'Username',
-            hintStyle: const TextStyle(
-              color: Color(0xFFC1C1C1),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            "Please fill out form to continue!",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.blue,
+              fontWeight: FontWeight.w900,
             ),
           ),
         ),
 
-        TextField(
-          obscureText: true,
-          decoration: InputDecoration(
-            hint: Text("1234123"),
-            labelText: 'Password'
-          ),
+        const SizedBox(height: 9),
+
+        CustomTextField(
+          icon: Icons.person, 
+          hint: 'Username', 
+          isPassword: false,
+          txtController: txtUsername
         ),
         
-        ElevatedButton(
-          onPressed: () {}, 
-          style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20)
-            )
-          ),
-          child: Text("login"))
-      ],
-    ),
+        const SizedBox(height: 12),
+
+        CustomTextField(
+          icon: Icons.password, 
+          hint: 'Password', 
+          isPassword: true,
+          txtController: txtPassword
+        ),
+
+        const SizedBox(height: 12),
+
+        CustomButton(
+          onPressed: () {
+            setState(() {
+              String username = txtUsername.text.toString();
+              String password = txtPassword.text.toString();
+
+              if(username == "admin" && password == "admin"){
+                statusLogin = "suksses";
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CalculatorPage()),
+                );
+              }else{
+                statusLogin = "woi salah";
+              }
+              
+              print(statusLogin);
+            });
+          }, 
+          buttonText: 'login')
+        ],
+      ),
       )
     );
   }

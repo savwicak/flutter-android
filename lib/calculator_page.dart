@@ -1,5 +1,6 @@
+import 'package:belajar_flutter/components/calculator/custom_calculator_text.dart';
+import 'package:belajar_flutter/components/calculator/operator_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class CalculatorPage extends StatefulWidget {
   const CalculatorPage({super.key});
@@ -9,6 +10,43 @@ class CalculatorPage extends StatefulWidget {
 }
 
 class _CalculatorPageState extends State<CalculatorPage> {
+  TextEditingController textNumber1 = TextEditingController();
+  TextEditingController textNumber2 = TextEditingController();
+
+  int result = 0;
+  
+
+  int calculation(int number1, int number2, String operator) {
+    switch (operator) {
+      case '+':
+        return number1 + number2;
+
+      case '-':
+        return number1 - number2;
+
+      case 'x':
+        return number1 * number2;
+
+      case '/':
+        return number1 ~/ number2;
+
+      default:
+        return 0;
+    }
+  }
+
+  void calculate(String operator) {
+    final number1 = int.tryParse(textNumber1.text);
+    final number2 = int.tryParse(textNumber2.text);
+
+    if (number1 == null || number2 == null) {
+      return;
+    }
+
+    setState(() {
+      result = calculation(number1, number2, operator);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,40 +61,16 @@ class _CalculatorPageState extends State<CalculatorPage> {
         ),
         child: Column(
           children: [
-            TextField(
-              keyboardType: TextInputType.number,
-              inputFormatters: [
-                FilteringTextInputFormatter.digitsOnly,
-              ],
-              decoration: InputDecoration(
-                hint: Text("Number Only"),
-                labelText: 'Number 1',
-                hintStyle: const TextStyle(
-                  color: Color(0xFFC1C1C1),
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20)
-                )
-              ),
+            CustomCalculatorText(
+              labelText: 'Number 1', 
+              txtController: textNumber1
             ),
 
             const SizedBox(height: 9),
 
-            TextField(
-              keyboardType: TextInputType.number,
-              inputFormatters: [
-                FilteringTextInputFormatter.digitsOnly,
-              ],
-              decoration: InputDecoration(
-                hint: Text("Number Only"),
-                labelText: 'Number 2',
-                hintStyle: const TextStyle(
-                  color: Color(0xFFC1C1C1),
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20)
-                )
-              ),
+            CustomCalculatorText(
+              labelText: 'Number 2', 
+              txtController: textNumber2
             ),
             
             const SizedBox(height: 9),
@@ -64,97 +78,28 @@ class _CalculatorPageState extends State<CalculatorPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                    child: const Text(
-                      "+",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
+                OperatorButton(
+                  onPressed: () {calculate('+');}, 
+                  operatorText: '+'
                 ),
-
                 const SizedBox(width: 10),
 
-                SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                    child: const Text(
-                      "-",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
+                OperatorButton(
+                  onPressed: () {calculate('-');}, 
+                  operatorText: '-'
                 ),
-
                 const SizedBox(width: 10),
 
-                SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                    child: const Text(
-                      "x",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
+                OperatorButton(
+                  onPressed: () {calculate('x');}, 
+                  operatorText: 'x'
                 ),
-
                 const SizedBox(width: 10),
   
-                SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                    child: const Text(
-                      "/",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
+                OperatorButton(
+                  onPressed: () {calculate('/');}, 
+                  operatorText: '/'
                 ),
-
                 const SizedBox(width: 10),
               ],
             ),
@@ -162,7 +107,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
             const SizedBox(height: 30),
 
             Text(
-              "Hasil",
+              result.toString(),
               style: TextStyle(
                 fontSize: 30,
                 color: Colors.black
