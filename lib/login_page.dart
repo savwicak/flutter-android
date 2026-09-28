@@ -70,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                 statusLogin = "suksses";
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const CalculatorPage()),
+                  MaterialPageRoute(builder: (context) => CalculatorPage()),
                 );
               }else{
                 statusLogin = "woi salah";

@@ -1,52 +1,22 @@
 import 'package:belajar_flutter/components/calculator/custom_calculator_text.dart';
 import 'package:belajar_flutter/components/calculator/operator_button.dart';
+import 'package:belajar_flutter/controller/calculator_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CalculatorPage extends StatefulWidget {
-  const CalculatorPage({super.key});
+  CalculatorPage({super.key});
 
   @override
   State<CalculatorPage> createState() => _CalculatorPageState();  
+  
 }
 
 class _CalculatorPageState extends State<CalculatorPage> {
+  final controller = Get.put(CalculatorController());
+  
   TextEditingController textNumber1 = TextEditingController();
   TextEditingController textNumber2 = TextEditingController();
-
-  int result = 0;
-  
-
-  int calculation(int number1, int number2, String operator) {
-    switch (operator) {
-      case '+':
-        return number1 + number2;
-
-      case '-':
-        return number1 - number2;
-
-      case 'x':
-        return number1 * number2;
-
-      case '/':
-        return number1 ~/ number2;
-
-      default:
-        return 0;
-    }
-  }
-
-  void calculate(String operator) {
-    final number1 = int.tryParse(textNumber1.text);
-    final number2 = int.tryParse(textNumber2.text);
-
-    if (number1 == null || number2 == null) {
-      return;
-    }
-
-    setState(() {
-      result = calculation(number1, number2, operator);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,25 +49,65 @@ class _CalculatorPageState extends State<CalculatorPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 OperatorButton(
-                  onPressed: () {calculate('+');}, 
+                  onPressed: () {
+                    if (textNumber1.text.isEmpty || textNumber2.text.isEmpty) {
+                      controller.warnMessage.value = "Please fill both numbers!";
+                      return;
+                    }
+
+                    controller.addition(
+                      double.parse(textNumber1.text),
+                      double.parse(textNumber2.text),
+                    );
+                  },
                   operatorText: '+'
                 ),
                 const SizedBox(width: 10),
 
                 OperatorButton(
-                  onPressed: () {calculate('-');}, 
+                  onPressed: () {
+                    if (textNumber1.text.isEmpty || textNumber2.text.isEmpty) {
+                      controller.warnMessage.value = "Please fill both numbers!";
+                      return;
+                    }
+
+                    controller.substraction(
+                      double.parse(textNumber1.text),
+                      double.parse(textNumber2.text),
+                    );
+                  },
                   operatorText: '-'
                 ),
                 const SizedBox(width: 10),
 
                 OperatorButton(
-                  onPressed: () {calculate('x');}, 
+                  onPressed: () {
+                    if (textNumber1.text.isEmpty || textNumber2.text.isEmpty) {
+                      controller.warnMessage.value = "Please fill both numbers!";
+                      return;
+                    }
+
+                    controller.multiplication(
+                      double.parse(textNumber1.text),
+                      double.parse(textNumber2.text),
+                    );
+                  },
                   operatorText: 'x'
                 ),
                 const SizedBox(width: 10),
   
                 OperatorButton(
-                  onPressed: () {calculate('/');}, 
+                  onPressed: () {
+                    if (textNumber1.text.isEmpty || textNumber2.text.isEmpty) {
+                      controller.warnMessage.value = "Please fill both numbers!";
+                      return;
+                    }
+
+                    controller.division(
+                      double.parse(textNumber1.text),
+                      double.parse(textNumber2.text),
+                    );
+                  }, 
                   operatorText: '/'
                 ),
                 const SizedBox(width: 10),
@@ -106,13 +116,26 @@ class _CalculatorPageState extends State<CalculatorPage> {
             
             const SizedBox(height: 30),
 
-            Text(
-              result.toString(),
-              style: TextStyle(
-                fontSize: 30,
-                color: Colors.black
+            Obx(
+              () => Text(
+                controller.warnMessage.value,
+                style: const TextStyle(
+                  color: Colors.red,
+                ),
               ),
             ),
+
+            const SizedBox(height: 10),
+
+            Obx(
+              () => Text(
+                controller.hasilHitung.value.toString(),
+                style: const TextStyle(
+                  fontSize: 30,
+                  color: Colors.black,
+                ),
+              ),
+            )
           ],
         ),
       ),
