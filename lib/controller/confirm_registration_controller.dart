@@ -2,8 +2,7 @@ import 'package:get/get.dart';
 
 class ConfirmRegistrationController extends GetxController {
   late String username;
-  late String email;
-  late String status;
+  late String fullname;
 
   @override
   void onInit() {
@@ -11,7 +10,6 @@ class ConfirmRegistrationController extends GetxController {
     super.onInit();
     final arguments = Get.arguments;
     username = arguments["username"];
-    email = arguments["email"];
-    status = arguments["status"];
+    fullname = arguments["fullname"];
   }
 }
