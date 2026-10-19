@@ -1,23 +1,22 @@
 
 import 'package:belajar_flutter/colors.dart';
+import 'package:belajar_flutter/controller/food_list_detailed_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FoodListDetailedScreen extends StatelessWidget {
   FoodListDetailedScreen({super.key});
 
-  final Map<String, dynamic> food =
-      Get.arguments as Map<String, dynamic>;
+  final controller = Get.put(FoodListDetailedController());
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> reviews =
-        (food['review'] as List)
-            .map((item) => Map<String, String>.from(item))
-            .toList();
+    final food = controller.food;
+    final reviews = controller.reviews;
 
     return Scaffold(
       backgroundColor: NewColors.white,
+
       appBar: AppBar(
         automaticallyImplyLeading: true,
         title: Text(
@@ -28,8 +27,11 @@ class FoodListDetailedScreen extends StatelessWidget {
           ),
         ),
         backgroundColor: NewColors.cream,
-        iconTheme: IconThemeData(color: NewColors.brown),
+        iconTheme: IconThemeData(
+          color: NewColors.brown,
+        ),
       ),
+
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
@@ -57,6 +59,7 @@ class FoodListDetailedScreen extends StatelessWidget {
 
           const SizedBox(height: 20),
 
+          // Food name
           Text(
             food['name'],
             style: TextStyle(
@@ -68,6 +71,7 @@ class FoodListDetailedScreen extends StatelessWidget {
 
           const SizedBox(height: 8),
 
+          // Price and rating
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -80,8 +84,6 @@ class FoodListDetailedScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(width: 10,),
-
               Row(
                 children: [
                   Icon(
@@ -91,7 +93,7 @@ class FoodListDetailedScreen extends StatelessWidget {
                   ),
                   const SizedBox(width: 5),
                   Text(
-                    food['rating'],
+                    '${food['rating']}',
                     style: TextStyle(
                       color: NewColors.brown,
                       fontWeight: FontWeight.bold,
@@ -111,6 +113,7 @@ class FoodListDetailedScreen extends StatelessWidget {
 
           const SizedBox(height: 20),
 
+          // Description
           Text(
             "Description",
             style: TextStyle(
@@ -133,6 +136,7 @@ class FoodListDetailedScreen extends StatelessWidget {
 
           const SizedBox(height: 25),
 
+          // Customer reviews
           Text(
             "Customer Reviews",
             style: TextStyle(
@@ -143,6 +147,7 @@ class FoodListDetailedScreen extends StatelessWidget {
           ),
 
           const SizedBox(height: 12),
+
           ...reviews.map((review) {
             return Container(
               margin: const EdgeInsets.only(bottom: 14),
@@ -151,7 +156,9 @@ class FoodListDetailedScreen extends StatelessWidget {
                 color: NewColors.white,
                 borderRadius: BorderRadius.circular(18),
                 border: Border.all(
-                  color: NewColors.brown.withValues(alpha: 0.35),
+                  color: NewColors.brown.withValues(
+                    alpha: 0.35,
+                  ),
                   width: 1.2,
                 ),
               ),
@@ -169,7 +176,9 @@ class FoodListDetailedScreen extends StatelessWidget {
                           size: 24,
                         ),
                       ),
+
                       const SizedBox(width: 12),
+
                       Expanded(
                         child: Text(
                           review['name'] ?? 'Anonymous',
@@ -184,11 +193,15 @@ class FoodListDetailedScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   const SizedBox(height: 10),
+
                   Text(
                     review['comment'] ?? '',
                     style: TextStyle(
-                      color: NewColors.brown.withValues(alpha: 0.85),
+                      color: NewColors.brown.withValues(
+                        alpha: 0.85,
+                      ),
                       fontSize: 13,
                       height: 1.6,
                     ),
