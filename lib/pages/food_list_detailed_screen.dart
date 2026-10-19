@@ -19,6 +19,7 @@ class FoodListDetailedScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: NewColors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: true,
         title: Text(
           food['name'],
           style: TextStyle(

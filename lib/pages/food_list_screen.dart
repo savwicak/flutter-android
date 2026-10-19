@@ -16,6 +16,7 @@ class FoodListScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: NewColors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: NewColors.cream,
         elevation: 0,
         scrolledUnderElevation: 0,
@@ -30,7 +31,7 @@ class FoodListScreen extends StatelessWidget {
         ),
       ),
       body: ListView.builder(
-        padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+        padding: const EdgeInsets.all(16),
         itemCount: controller.foodData.length,
         itemBuilder: (context, index) {
           final food = controller.foodData[index];

@@ -9,7 +9,7 @@ class FoodListController extends GetxController {
       price: "12.000",
       description: "Sayur asem segar dengan rasa asam yang pas",
       rating: "10/10",
-      imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTnL48LT00qJnFiFD98W70Pe8eH_LrJ9pFgy7t6a9QGDvZEHVjqM8lpPfMYfXV5egQIaga3dVPXjC6g67yFdKAOO5vzxtE281MH3O7pg&s=10",
       review: [
         {"name": "Alya", "comment": "Enak banget, asemnya pas!"},
         {"name": "Budi", "comment": "Rasanya segar dan bikin nagih."},
@@ -23,7 +23,7 @@ class FoodListController extends GetxController {
       price: "15.000",
       description: "Nasi goreng gurih dengan bumbu khas Indonesia",
       rating: "9/10",
-      imageUrl: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnUKoKRZGI0u8P5uDXTW-vo1YQp21kx-IEoYni3bdhZAE5nxZqWC6Dln35CBL2-Qd5KZwjJP24qA5KocHBJuPOPGRiT9H6ilWeHc7-og&s=10",
       review: [
         {"name": "Raka", "comment": "Bumbunya meresap sampai ke nasi."},
         {"name": "Putri", "comment": "Enak banget buat makan malam."},
@@ -37,7 +37,7 @@ class FoodListController extends GetxController {
       price: "25.000",
       description: "Daging sapi empuk dengan bumbu rempah yang kaya",
       rating: "10/10",
-      imageUrl: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKcQNCWf_ID_Qt-FHhqCrFTWan-sVxCRbAPVw9cqtyZ8jjIl6Pici_1oLpXvXU5iqugX5RBiaZ9nc53kPsi4FIGyw0NsLRNgb23DEwYQ&s=10",
       review: [
         {"name": "Andi", "comment": "Dagingnya empuk banget."},
         {"name": "Maya", "comment": "Rempahnya terasa dan kaya rasa."},
@@ -51,7 +51,7 @@ class FoodListController extends GetxController {
       price: "15.000",
       description: "Sup ayam hangat dengan kuah kuning yang gurih",
       rating: "9/10",
-      imageUrl: "https://images.unsplash.com/photo-1547592180-85f173990554?w=400",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvbaiMQKB80nzJ_7vY_G11zJCH0g4_DD5W7NysUad9xT7zSK77vtlNZFpvJxVR1uxHhiB1b7babDsKY7cq3TMlYXn8MTaIE4jFTRLOSCo&s=10",
       review: [
         {"name": "Dina", "comment": "Kuahnya gurih dan segar."},
         {"name": "Arif", "comment": "Enak dimakan saat masih hangat."},
@@ -65,7 +65,7 @@ class FoodListController extends GetxController {
       price: "20.000",
       description: "Sate ayam bakar dengan bumbu kacang yang lezat",
       rating: "10/10",
-      imageUrl: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8M5PXZ2Pr4jt9o9lBTSb2ReG8D18SGWf9jz_VXQZoTg&s=10",
       review: [
         {"name": "Kevin", "comment": "Bumbu kacangnya juara!"},
         {"name": "Nanda", "comment": "Satenya empuk dan juicy."},
@@ -79,7 +79,7 @@ class FoodListController extends GetxController {
       price: "15.000",
       description: "Bakso sapi kenyal dengan kuah kaldu gurih",
       rating: "9/10",
-      imageUrl: "https://images.unsplash.com/photo-1547592180-85f173990554?w=400",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVqIds6VCgc-llVIz59Vlp0N_SiHRW44an0X0YB1GoyQ&s=10",
       review: [
         {"name": "Fina", "comment": "Kuahnya gurih banget."},
         {"name": "Bagas", "comment": "Baksonya kenyal dan enak."},
@@ -93,7 +93,7 @@ class FoodListController extends GetxController {
       price: "13.000",
       description: "Sayuran segar dengan saus kacang yang nikmat",
       rating: "8/10",
-      imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tqXCqSjmDoRVlpuO2fgi-vi3PIVZwXoscjaLk3E6lw&s",
       review: [
         {"name": "Sari", "comment": "Saus kacangnya enak."},
         {"name": "Tono", "comment": "Sayurannya terasa segar."},
@@ -107,7 +107,7 @@ class FoodListController extends GetxController {
       price: "18.000",
       description: "Olahan ikan khas Palembang dengan kuah cuko",
       rating: "9/10",
-      imageUrl: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpfEBwdqkPvIZ-sNau3IpqYos6Z4yUuXDk6PTY5YYn4MEaeXdeEGKbOA6x&s=10",
       review: [
         {"name": "Della", "comment": "Cuko-nya pedas manis."},
         {"name": "Farhan", "comment": "Teksturnya kenyal dan enak."},
@@ -121,7 +121,7 @@ class FoodListController extends GetxController {
       price: "20.000",
       description: "Sup daging sapi dengan kuah hitam khas kluwek",
       rating: "10/10",
-      imageUrl: "https://images.unsplash.com/photo-1547592180-85f173990554?w=400",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRom9KbAGr2Wpjia7gQ9rL4w0_DEu_zD3gsRQ8DkkyVwg&s=10",
       review: [
         {"name": "Eko", "comment": "Kuahnya kaya rasa."},
         {"name": "Lina", "comment": "Dagingnya empuk dan gurih."},
@@ -135,7 +135,7 @@ class FoodListController extends GetxController {
       price: "17.000",
       description: "Ayam goreng dengan sambal pedas dan lalapan",
       rating: "10/10",
-      imageUrl: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDlMfL2ktqln_kCTPW0dMjlsrfYb-BFip5u8fDcw6YAOT11KGgNFh5xa6A&s=10",
       review: [
         {"name": "Wulan", "comment": "Sambalnya pedas dan mantap."},
         {"name": "Bayu", "comment": "Ayamnya gurih dan renyah."},
