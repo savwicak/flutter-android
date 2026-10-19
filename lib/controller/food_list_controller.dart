@@ -1,0 +1,148 @@
+
+import 'package:belajar_flutter/model/food_model.dart';
+import 'package:get/state_manager.dart';
+
+class FoodListController extends GetxController {
+  List<FoodModel> foodData = [
+    FoodModel(
+      name: "Sayur Asem",
+      price: "12.000",
+      description: "Sayur asem segar dengan rasa asam yang pas",
+      rating: "10/10",
+      imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400",
+      review: [
+        {"name": "Alya", "comment": "Enak banget, asemnya pas!"},
+        {"name": "Budi", "comment": "Rasanya segar dan bikin nagih."},
+        {"name": "Citra", "comment": "Cocok dimakan sama nasi hangat."},
+        {"name": "Dimas", "comment": "Bumbunya terasa banget."},
+        {"name": "Nadia", "comment": "Porsinya pas dan rasanya enak."},
+      ],
+    ),
+    FoodModel(
+      name: "Nasi Goreng",
+      price: "15.000",
+      description: "Nasi goreng gurih dengan bumbu khas Indonesia",
+      rating: "9/10",
+      imageUrl: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400",
+      review: [
+        {"name": "Raka", "comment": "Bumbunya meresap sampai ke nasi."},
+        {"name": "Putri", "comment": "Enak banget buat makan malam."},
+        {"name": "Fajar", "comment": "Rasanya gurih dan tidak membosankan."},
+        {"name": "Sinta", "comment": "Aromanya menggugah selera."},
+        {"name": "Rizky", "comment": "Bakalan pesan lagi!"},
+      ],
+    ),
+    FoodModel(
+      name: "Rendang",
+      price: "25.000",
+      description: "Daging sapi empuk dengan bumbu rempah yang kaya",
+      rating: "10/10",
+      imageUrl: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400",
+      review: [
+        {"name": "Andi", "comment": "Dagingnya empuk banget."},
+        {"name": "Maya", "comment": "Rempahnya terasa dan kaya rasa."},
+        {"name": "Dewi", "comment": "Bumbunya meresap sempurna."},
+        {"name": "Ilham", "comment": "Salah satu rendang terenak!"},
+        {"name": "Nina", "comment": "Cocok banget sama nasi hangat."},
+      ],
+    ),
+    FoodModel(
+      name: "Soto Ayam",
+      price: "15.000",
+      description: "Sup ayam hangat dengan kuah kuning yang gurih",
+      rating: "9/10",
+      imageUrl: "https://images.unsplash.com/photo-1547592180-85f173990554?w=400",
+      review: [
+        {"name": "Dina", "comment": "Kuahnya gurih dan segar."},
+        {"name": "Arif", "comment": "Enak dimakan saat masih hangat."},
+        {"name": "Lala", "comment": "Ayamnya lembut dan enak."},
+        {"name": "Yoga", "comment": "Bumbunya pas, tidak berlebihan."},
+        {"name": "Tia", "comment": "Pengen makan ini lagi!"},
+      ],
+    ),
+    FoodModel(
+      name: "Sate Ayam",
+      price: "20.000",
+      description: "Sate ayam bakar dengan bumbu kacang yang lezat",
+      rating: "10/10",
+      imageUrl: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400",
+      review: [
+        {"name": "Kevin", "comment": "Bumbu kacangnya juara!"},
+        {"name": "Nanda", "comment": "Satenya empuk dan juicy."},
+        {"name": "Rani", "comment": "Aroma bakarnya menggoda."},
+        {"name": "Dito", "comment": "Manis dan gurihnya pas."},
+        {"name": "Salsa", "comment": "Enak banget pakai lontong."},
+      ],
+    ),
+    FoodModel(
+      name: "Bakso",
+      price: "15.000",
+      description: "Bakso sapi kenyal dengan kuah kaldu gurih",
+      rating: "9/10",
+      imageUrl: "https://images.unsplash.com/photo-1547592180-85f173990554?w=400",
+      review: [
+        {"name": "Fina", "comment": "Kuahnya gurih banget."},
+        {"name": "Bagas", "comment": "Baksonya kenyal dan enak."},
+        {"name": "Niko", "comment": "Cocok dimakan pas hujan."},
+        {"name": "Vina", "comment": "Porsinya bikin kenyang."},
+        {"name": "Reno", "comment": "Tambah sambal makin mantap."},
+      ],
+    ),
+    FoodModel(
+      name: "Gado-Gado",
+      price: "13.000",
+      description: "Sayuran segar dengan saus kacang yang nikmat",
+      rating: "8/10",
+      imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400",
+      review: [
+        {"name": "Sari", "comment": "Saus kacangnya enak."},
+        {"name": "Tono", "comment": "Sayurannya terasa segar."},
+        {"name": "Mila", "comment": "Bumbunya gurih dan kental."},
+        {"name": "Riko", "comment": "Menu sehat yang mengenyangkan."},
+        {"name": "Anisa", "comment": "Kerupuknya bikin tambah enak."},
+      ],
+    ),
+    FoodModel(
+      name: "Pempek",
+      price: "18.000",
+      description: "Olahan ikan khas Palembang dengan kuah cuko",
+      rating: "9/10",
+      imageUrl: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400",
+      review: [
+        {"name": "Della", "comment": "Cuko-nya pedas manis."},
+        {"name": "Farhan", "comment": "Teksturnya kenyal dan enak."},
+        {"name": "Novi", "comment": "Rasa ikannya terasa."},
+        {"name": "Rafi", "comment": "Paling enak dimakan hangat."},
+        {"name": "Intan", "comment": "Bikin pengen nambah lagi."},
+      ],
+    ),
+    FoodModel(
+      name: "Rawon",
+      price: "20.000",
+      description: "Sup daging sapi dengan kuah hitam khas kluwek",
+      rating: "10/10",
+      imageUrl: "https://images.unsplash.com/photo-1547592180-85f173990554?w=400",
+      review: [
+        {"name": "Eko", "comment": "Kuahnya kaya rasa."},
+        {"name": "Lina", "comment": "Dagingnya empuk dan gurih."},
+        {"name": "Wahyu", "comment": "Kluweknya terasa khas."},
+        {"name": "Dian", "comment": "Enak banget pakai nasi hangat."},
+        {"name": "Adit", "comment": "Porsinya pas dan memuaskan."},
+      ],
+    ),
+    FoodModel(
+      name: "Ayam Penyet",
+      price: "17.000",
+      description: "Ayam goreng dengan sambal pedas dan lalapan",
+      rating: "10/10",
+      imageUrl: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400",
+      review: [
+        {"name": "Wulan", "comment": "Sambalnya pedas dan mantap."},
+        {"name": "Bayu", "comment": "Ayamnya gurih dan renyah."},
+        {"name": "Nisa", "comment": "Lalapannya segar."},
+        {"name": "Galih", "comment": "Cocok buat pecinta pedas."},
+        {"name": "Ayu", "comment": "Ayam penyet favoritku!"},
+      ],
+    ),
+  ];
+}

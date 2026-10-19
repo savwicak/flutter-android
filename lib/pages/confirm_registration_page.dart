@@ -1,5 +1,6 @@
 import 'package:belajar_flutter/components/custom_button.dart';
 import 'package:belajar_flutter/controller/registration_controller.dart';
+import 'package:belajar_flutter/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -40,7 +41,6 @@ class ConfirmRegistrationPage extends StatelessWidget {
 
               const SizedBox(height: 40),
 
-              // Username
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(18),
@@ -131,7 +131,7 @@ class ConfirmRegistrationPage extends StatelessWidget {
                 child: Row(
                   children: [
                     const Icon(
-                      Icons.view_kanban_outlined,
+                      Icons.school_outlined,
                       color: Colors.grey,
                     ),
                     const SizedBox(width: 14),
@@ -139,7 +139,7 @@ class ConfirmRegistrationPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          'Email',
+                          'Status',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey,
@@ -166,7 +166,7 @@ class ConfirmRegistrationPage extends StatelessWidget {
                 height: 52,
                 child: CustomButton(
                   onPressed: () {
-                    Get.back();
+                    Get.toNamed(Routes.foodList);
                   },
                   buttonText: 'OK',
                 ),
