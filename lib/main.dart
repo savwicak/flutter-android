@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      initialRoute: Routes.registration,
+      initialRoute: Routes.mainMenu,
       getPages: Routes.myPages,
     );
   }
