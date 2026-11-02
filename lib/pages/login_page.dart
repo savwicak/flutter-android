@@ -1,6 +1,7 @@
 import 'package:belajar_flutter/components/custom_link_button.dart';
 import 'package:belajar_flutter/components/custom_button.dart';
 import 'package:belajar_flutter/components/custom_text_field.dart';
+import 'package:belajar_flutter/controller/login_controller.dart';
 import 'package:belajar_flutter/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController txtUsername = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
   String statusLogin = '';
+  final controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                   icon: Icons.person_outline,
                   hint: 'Username',
                   isPassword: false,
-                  txtController: txtUsername,
+                  txtController: controller.txtUsername,
                 ),
 
                 const SizedBox(height: 18),
@@ -89,28 +91,26 @@ class _LoginPageState extends State<LoginPage> {
                   icon: Icons.lock_outline,
                   hint: 'Password',
                   isPassword: true,
-                  txtController: txtPassword,
+                  txtController: controller.txtPassword,
                 ),
 
                 const SizedBox(height: 30),
 
-                SizedBox(
-                  width: double.infinity,
-                  height: 52,
-                  child: CustomButton(
-                    onPressed: () {
-                      // pindah dan mengirim username ke next page
-                      Get.toNamed(
-                        Routes.confirmRegistration,
-                        arguments: {
-                          "username": txtUsername.text,
-                          "fullname": "admin",
-                          // dll
-                        },
-                      );
-                    },
-                    buttonText: 'Login',
-                  ),
+                Obx(
+                  () => controller.isLoading.value
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : SizedBox(
+                          width: double.infinity,
+                          height: 52,
+                          child: CustomButton(
+                            onPressed: () {
+                              controller.login();
+                            },
+                            buttonText: 'Login',
+                          ),
+                        ),
                 ),
 
                 const SizedBox(height: 25),
