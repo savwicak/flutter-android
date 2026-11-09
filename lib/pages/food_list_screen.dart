@@ -1,6 +1,6 @@
 
 import 'package:belajar_flutter/colors.dart';
-import 'package:belajar_flutter/components/food_cart.dart';
+import 'package:belajar_flutter/components/randomcustom/food_cart.dart';
 import 'package:belajar_flutter/controller/food_list_controller.dart';
 import 'package:belajar_flutter/routes.dart';
 import 'package:flutter/material.dart';

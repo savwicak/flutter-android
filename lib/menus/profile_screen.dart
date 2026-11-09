@@ -1,7 +1,8 @@
 
-import 'package:belajar_flutter/colors.dart';
+import 'package:belajar_flutter/components/profile/profile_header.dart';
+import 'package:belajar_flutter/components/profile/profile_menu_item.dart';
+import 'package:belajar_flutter/components/profile/profile_section.dart';
 import 'package:flutter/material.dart';
-import 'package:belajar_flutter/widget/profile_widget.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -10,137 +11,34 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF2F2F4),
-
-      appBar: AppBar(
-        backgroundColor: NewColors.cream,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        leading: const Icon(
-          Icons.arrow_back,
-          color: Colors.black,
-        ),
-        title: Text(
-          "My profile",
-          style: TextStyle(
-            color: NewColors.brown,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              color: NewColors.cream,
-              padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(28),
-                    topRight: Radius.circular(28),
-                  ),
-                  border: Border.all(
-                    color: Colors.grey.shade200,
-                  ),
-                ),
-                child: Row(
-                  children: [
-                    const CircleAvatar(
-                      radius: 42,
-                      backgroundImage: NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3CfD5zJSnQtkgnA5h43mVw58_zbDq7krHlOIMZJysGA&s=10',
-                      ),
-                    ),
-
-                    const SizedBox(width: 16),
-
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Grace Ashcroft",
-                            style: TextStyle(
-                              color: NewColors.brown,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 6),
-                          const Text(
-                            "graceashcroft@gmail.com",
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.grey,
-                            ),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          const SizedBox(height: 4),
-                          const Text(
-                            "+62 934960402",
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black87,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    Icon(
-                      Icons.edit,
-                      color: NewColors.brown,
-                      size: 24,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-
+            const ProfileHeader(),
             Container(
               margin: const EdgeInsets.fromLTRB(16, 0, 16, 28),
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 16,
-              ),
-              decoration: BoxDecoration(
-                color: const Color(0xFFFFD900),
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(28),
-                  bottomRight: Radius.circular(28),
+              padding: const EdgeInsets.all(16),
+              decoration: const BoxDecoration(
+                color: Color(0xFFFFD900),
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(28),
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.08),
-                    blurRadius: 8,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
               ),
-              child: Row(
+              child: const Row(
                 children: [
-                  const Icon(
-                    Icons.star_border_purple500_rounded,
-                    size: 30,
-                    color: Color(0xFF713500),
-                  ),
-                  const SizedBox(width: 12),
-                  const Text(
+                  Icon(Icons.star_border_purple500_rounded,
+                      color: Color(0xFF713500), size: 30),
+                  SizedBox(width: 12),
+                  Text(
                     "Join GoStar",
                     style: TextStyle(
-                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF713500),
                     ),
                   ),
-                  const Spacer(),
-                  const Flexible(
+                  Spacer(),
+                  Flexible(
                     child: Text(
                       "Ada reward eksklusif",
                       textAlign: TextAlign.end,
@@ -150,87 +48,79 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 8),
-                  const Icon(
-                    Icons.arrow_circle_right,
-                    size: 32,
-                    color: Color(0xFF713500),
-                  ),
+                  SizedBox(width: 8),
+                  Icon(Icons.arrow_circle_right,
+                      color: Color(0xFF713500), size: 32),
                 ],
               ),
             ),
-            sectionTitle("Preference"),
 
-            menuCard([
-              menuItem(
-                Icons.security,
-                "Keamanan akun",
-              ),
-              menuItem(
-                Icons.add_circle,
-                "Gojek PLUS",
-                badge: "Promo terbatas",
-              ),
-              menuItem(
-                Icons.credit_card,
-                "Metode Pembayaran",
-              ),
-              menuItem(
-                Icons.groups,
-                "Akun Keluarga",
-                badge: "Baru",
-              ),
-              menuItem(
-                Icons.bookmark,
-                "Alamat tersimpan",
-                showDivider: false,
-              ),
-            ]),
-
-            const SizedBox(height: 28),
-
-            sectionTitle("Aktivitas di Gojek"),
-
-            menuCard([
-              menuItem(
-                Icons.history,
-                "Aktivitas",
-              ),
-              menuItem(
-                Icons.local_offer,
-                "Promo & voucher",
-              ),
-              menuItem(
-                Icons.shield_outlined,
-                "Asuransiku",
-                badge: "Baru",
-                showDivider: false,
-              ),
-            ]),
+            ProfileSection(
+              title: "Preference",
+              items: const [
+                ProfileMenuItem(icon: Icons.security, title: "Keamanan akun"),
+                ProfileMenuItem(
+                  icon: Icons.add_circle,
+                  title: "Gojek PLUS",
+                  badge: "Promo terbatas",
+                ),
+                ProfileMenuItem(
+                  icon: Icons.credit_card,
+                  title: "Metode Pembayaran",
+                ),
+                ProfileMenuItem(
+                  icon: Icons.groups,
+                  title: "Akun Keluarga",
+                  badge: "Baru",
+                ),
+                ProfileMenuItem(
+                  icon: Icons.bookmark,
+                  title: "Alamat tersimpan",
+                  showDivider: false,
+                ),
+              ],
+            ),
 
             const SizedBox(height: 28),
 
-            sectionTitle("Pengaturan aplikasi"),
+            ProfileSection(
+              title: "Aktivitas di Gojek",
+              items: const [
+                ProfileMenuItem(icon: Icons.history, title: "Aktivitas"),
+                ProfileMenuItem(
+                  icon: Icons.local_offer,
+                  title: "Promo & voucher",
+                ),
+                ProfileMenuItem(
+                  icon: Icons.shield_outlined,
+                  title: "Asuransiku",
+                  badge: "Baru",
+                  showDivider: false,
+                ),
+              ],
+            ),
 
-            menuCard([
-              menuItem(
-                Icons.phone_android,
-                "Ikon aplikasi",
-              ),
-              menuItem(
-                Icons.notifications_outlined,
-                "Pengaturan notifikasi",
-              ),
-              menuItem(
-                Icons.language,
-                "Bahasa",
-              ),
-              menuItem(
-                Icons.info_outline,
-                "Tentang aplikasi",
-                showDivider: false,
-              ),
-            ]),
+            const SizedBox(height: 28),
+
+            ProfileSection(
+              title: "Pengaturan aplikasi",
+              items: const [
+                ProfileMenuItem(
+                  icon: Icons.phone_android,
+                  title: "Ikon aplikasi",
+                ),
+                ProfileMenuItem(
+                  icon: Icons.notifications_outlined,
+                  title: "Pengaturan notifikasi",
+                ),
+                ProfileMenuItem(icon: Icons.language, title: "Bahasa"),
+                ProfileMenuItem(
+                  icon: Icons.info_outline,
+                  title: "Tentang aplikasi",
+                  showDivider: false,
+                ),
+              ],
+            ),
 
             const SizedBox(height: 30),
           ],

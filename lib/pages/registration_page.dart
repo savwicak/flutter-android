@@ -1,7 +1,7 @@
-import 'package:belajar_flutter/components/custom_button.dart';
-import 'package:belajar_flutter/components/custom_link_button.dart';
-import 'package:belajar_flutter/components/custom_text_field.dart';
-import 'package:belajar_flutter/components/cutom_dropdown.dart';
+import 'package:belajar_flutter/components/randomcustom/custom_button.dart';
+import 'package:belajar_flutter/components/randomcustom/custom_link_button.dart';
+import 'package:belajar_flutter/components/randomcustom/custom_text_field.dart';
+import 'package:belajar_flutter/components/randomcustom/cutom_dropdown.dart';
 import 'package:belajar_flutter/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
